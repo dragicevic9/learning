@@ -14,7 +14,7 @@ public class MethodReferencesTypes {
         boundMethodReferences();
         unboundMethodReferences();
         staticMethodReferences();
-        constructorMetodReferences();
+        constructorMethodReferences();
     }
 
     public static void boundMethodReferences() {
@@ -67,18 +67,17 @@ public class MethodReferencesTypes {
         System.out.println(listOfNumbers);
     }
 
-    public static void constructorMetodReferences() {
+    public static void constructorMethodReferences() {
         Supplier<StringBuilder> sbL = () -> new StringBuilder(); // lambda
         Supplier<StringBuilder> sbMR = StringBuilder::new;
 
         StringBuilder sb1 = sbL.get();
-        sb1.append("lamda version");
+        sb1.append("lambda version");
         System.out.println(sb1);
 
         StringBuilder sb2 = sbMR.get();
         sb2.append("method reference version");
         System.out.println(sb2);
-
 
         Function<Integer, List<String>> alL = x -> new ArrayList<>(x);
         Function<Integer, List<String>> alMR = ArrayList::new;
