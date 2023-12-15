@@ -1,0 +1,11 @@
+build:
+  version: "2.0"
+
+accounts:
+  message: "Welcome to EazyBank accounts related QA APIs"
+  contactDetails:
+    name: "Pera Peric - QA Lead"
+    email: "pera.peric@levi9.com"
+  onCallSupport:
+    - (222)245-1234
+    - (222)123-1345

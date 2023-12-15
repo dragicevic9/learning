@@ -1,0 +1,11 @@
+build:
+  version: "1.0"
+
+cards:
+  message: "Welcome to EazyBank cards related prod APIs"
+  contactDetails:
+    name: "Mika Mikic - Product Owner"
+    email: "mika.mikic@levi9.com"
+  onCallSupport:
+    - (111)125-1234
+    - (111)632-1345
