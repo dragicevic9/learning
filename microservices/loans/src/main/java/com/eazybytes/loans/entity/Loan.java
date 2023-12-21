@@ -2,6 +2,7 @@ package com.eazybytes.loans.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "loans")
@@ -13,7 +14,8 @@ import lombok.*;
 public class Loan extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
     private Long loanId;
     private String mobileNumber;
     private String loanNumber;

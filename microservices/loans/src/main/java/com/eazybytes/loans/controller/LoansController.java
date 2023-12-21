@@ -8,6 +8,8 @@ import com.eazybytes.loans.service.ILoansService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -33,6 +35,8 @@ public class LoansController {
 
     @Autowired
     private Environment environment;
+    private static final Logger logger = LoggerFactory.getLogger(LoansController.class);
+
 
     @PostMapping("/create")
     public ResponseEntity<ResponseDto> createLoan(@RequestParam
@@ -47,9 +51,10 @@ public class LoansController {
     }
 
     @GetMapping("/fetch")
-    public ResponseEntity<LoanDto> fetchLoan(@RequestParam
-                                             @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number must be 10 digits")
+    public ResponseEntity<LoanDto> fetchLoan(@RequestHeader("eazybank-correlation-id") String correlationId,
+                                             @RequestParam @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number must be 10 digits")
                                              String mobileNumber) {
+        logger.debug("eazyBank-correlation-id found: {}", correlationId);
         LoanDto loanDto = loansService.fetchLoan(mobileNumber);
         return new ResponseEntity<>(loanDto, HttpStatus.OK);
     }
