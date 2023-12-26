@@ -7,7 +7,9 @@ import lombok.*;
 
 @Entity
 @Table(name = "accounts")
-@Getter @Setter @ToString
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Account extends BaseEntity {
@@ -20,5 +22,7 @@ public class Account extends BaseEntity {
     private String accountType;
 
     private String branchAddress;
+
+    private Boolean communicationSw;
 
 }
