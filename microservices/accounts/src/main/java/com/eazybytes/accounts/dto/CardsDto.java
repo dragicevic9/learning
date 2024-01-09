@@ -6,12 +6,16 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Schema(name = "Cards",
         description = "Schema to hold Card information"
 )
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CardsDto {
 
     @NotEmpty(message = "Mobile Number can not be a null or empty")

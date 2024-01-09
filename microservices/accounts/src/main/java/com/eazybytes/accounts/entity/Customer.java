@@ -8,6 +8,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Getter @Setter @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Customer extends BaseEntity {
 
     @Id
