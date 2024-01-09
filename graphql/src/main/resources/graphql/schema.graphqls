@@ -1,0 +1,43 @@
+# All available queries on this graphql server
+type Query {
+    bookById(id: ID): Book
+    books : [Book]
+    recentBooks(count: Int): [Book]
+    bankAccount(id: ID!): BankAccount
+}
+
+type Mutation {
+    createBook(name: String!, pageCount: Int, authorId: String!) : Book!
+}
+
+type BankAccount {
+    id: ID!
+    client: Client!
+    currency: Currency!
+}
+
+type Client {
+    id: ID!
+    firstName: String!
+    middleNames: [String!]
+    lastName: String!
+    client: Client
+}
+
+enum Currency {
+    USD
+    CHF
+}
+
+type Book {
+    id: ID
+    name: String
+    pageCount: Int
+    author: Author
+}
+
+type Author {
+    id: ID
+    firstName: String
+    lastName: String
+}
